@@ -48,15 +48,11 @@ Both models were fine-tuned using a two-stage training procedure.
 
 ---
 
-## Hyperparameter Policy
+## Hyperparameters
 We followed established best practices in NLP and ML research:
 
 - **Fixed hyperparameters across splits**  
   - Prevents information leakage  
   - Avoids inflated performance estimates  
   - Ensures comparability between models  
-
-**References**  
-- Mosbach et al. (2021), *On the Stability of Fine-Tuning BERT*  
-- Cawley & Talbot (2010), *On Overfitting in Model Selection and Subsequent Selection Bias in Performance Evaluation*  
-- Scikit-learn Documentation, *Nested Cross-Validation*  
+ 
