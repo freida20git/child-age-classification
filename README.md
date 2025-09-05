@@ -1,43 +1,62 @@
-📘 Fine-Tuning Strategy:
+# Fine-Tuning Strategy
 
-We fine-tuned BERT (prajjwal1/bert-tiny) and DeBERTa-v3 using a two-stage training procedure:
+## Models
+- **BERT (prajjwal1/bert-tiny)**
+- **DeBERTa-v3**
 
-Stage 1 – Classifier training:
+Both models were fine-tuned using a two-stage training procedure.
 
-All encoder layers frozen.
+## Training Procedure
 
-Only the top classification layer trained.
+### Stage 1 – Classifier Training
+- Encoder layers frozen  
+- Only the classification head trained  
+- Learning rate: `5e-5`  
+- Dropout: `0.2`  
 
-Learning rate: 5e-5
+### Stage 2 – Full Fine-Tuning
+- All encoder layers unfrozen  
+- Entire model trained jointly  
+- Learning rate: `2e-5`  
+- Dropout: `0.2` (optimized on split 1)  
 
-Dropout: 0.2
+---
 
-Stage 2 – Full fine-tuning:
+## Data Splits
+- Dataset divided into **three train/validation/test splits**  
+- Hyperparameters (learning rate, dropout, epochs) were **optimized only on split 1**  
+- The **same hyperparameters** were then applied to splits 2 and 3  
+- This ensures **fair comparison, reproducibility, and unbiased evaluation**  
+- Final results are reported as the **mean across the three splits**  
 
-All encoder layers unfrozen.
+---
 
-Entire model trained jointly.
+## Results
 
-Learning rate: 2e-5
+### BERT (with class weights for class imbalance)
+- Accuracy: `0.69`  
+- F1: `0.69`  
 
-Dropout: 0.2 (optimized on split 1).
+### DeBERTa-v3 (with focal loss for class imbalance)
+- Accuracy: `0.71`  
+- F1: `0.72`  
 
-📂 Data Splits
+---
 
-The dataset was divided into three train/validation/test splits.
+## Notes
+- Raw data was refined and corrected using an LLM, which improved inference results.  
 
-Hyperparameters (learning rate, dropout, number of epochs) were optimized only on split 1.
+---
 
-The same hyperparameters were then applied to splits 2 and 3 to ensure fair comparison, reproducibility, and unbiased evaluation.
+## Hyperparameter Policy
+We followed established best practices in NLP and ML research:
 
-Final results are reported as the mean across the three splits.
+- **Fixed hyperparameters across splits**  
+  - Prevents information leakage  
+  - Avoids inflated performance estimates  
+  - Ensures comparability between models  
 
-⚖️ Hyperparameters: We followed established NLP/ML best practices:
-
-Using fixed hyperparameters across splits (instead of re-optimizing per split).
-
-This avoids information leakage and inflated performance.
-
-Ensures comparability between models (BERT vs DeBERTa-v3).
-
-Aligned with recommendations from:
+**References**  
+- Mosbach et al. (2021), *On the Stability of Fine-Tuning BERT*  
+- Cawley & Talbot (2010), *On Overfitting in Model Selection and Subsequent Selection Bias in Performance Evaluation*  
+- Scikit-learn Documentation, *Nested Cross-Validation*  
