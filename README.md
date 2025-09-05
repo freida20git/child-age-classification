@@ -28,6 +28,7 @@ Both models were fine-tuned using a two-stage training procedure.
 - The **same hyperparameters** were then applied to splits 2 and 3  
 - This ensures **fair comparison, reproducibility, and unbiased evaluation**  
 - Final results are reported as the **mean across the three splits**  
+- Data splits could be divided using splits.ipynb file or found at: [Dataset Splits](https://drive.google.com/drive/folders/14BUmuQshNyY2CLYDI2aKSNfhBoFJrmlv)
 
 ---
 
