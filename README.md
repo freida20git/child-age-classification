@@ -98,19 +98,3 @@ Notes: MAE and RMSE are in months for regression tasks.
 
 ---
 
-## Reproducibility notes & suggestions
-- Data: Notebooks reference a Google Drive CSV and embeddings on Drive. To reproduce, ensure Drive access or include a small sample dataset in the repo.
-- Environment: I added a candidate requirements.txt in the repo (see requirements.txt). It was generated from imports found across notebooks and scripts; please verify versions and adjust as needed.
-- Organization: Consider moving notebooks to /notebooks, results to /reports or /artifacts, and scripts to /src (avoid spaces in directory names).
-
----
-
-## Next steps completed per your request
-- Added per-notebook one-paragraph summaries.
-- Produced a candidate requirements.txt based on imports in notebooks and scripts.
-- Prepared this cleaned README ready to commit (committed alongside requirements.txt).
-
----
-
-## Contact
-If you want any phrasing edits, a different presentation of numeric results (per-split tables vs. averages), or additional artifacts extracted into the repo (e.g., small sample data or CI), tell me and I will update and commit accordingly.
