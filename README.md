@@ -1,7 +1,7 @@
 # Child Age Classification
 
 ## Short summary
-This repository contains a data-analysis + NLP / LLM project to predict child age (and age ranges) from conversational data. The work combines engineered speaking/linguistic features and classical ML models, transformer-based fine-tuning, and LLM-driven data refinement (prompt-based corrections). Notebooks and scripts include feature extraction, data splits, model training, evaluation, and result artifacts (including a PDF with BERT results).
+This repository contains a data-analysis NLP project to predict child age (and age ranges) from conversational data. The work combines engineered speaking/linguistic features and classical ML models, transformer-based fine-tuning, and LLM-driven data refinement (prompt-based corrections). Notebooks and scripts include feature extraction, data splits, model training, evaluation, and result artifacts (including a PDF with BERT results).
 
 This README reports averaged metrics across the three experimental splits. Per-split numbers and full tables are available in the notebooks and the PDF artifact in the repo.
 
@@ -9,20 +9,20 @@ This README reports averaged metrics across the three experimental splits. Per-s
 
 ## Quick links (important files)
 - Notebooks:
-  - Speak_Age_Features.ipynb — feature extraction and preprocessing
-  - Speak_Age_Promts.ipynb — LLM prompts & data correction (typo: "Promts")
-  - Speak_Age_Train_and_Test_All_Models.ipynb — classical ML experiments and analyses
+  - Speak_Age_Features.ipynb - feature extraction and preprocessing
+  - Speak_Age_Promts.ipynb - LLM prompts & data correction (typo: "Promts")
+  - Speak_Age_Train_and_Test_All_Models.ipynb - classical ML experiments and analyses
   - splits.ipynb — split generation and protocol
-  - weighted_splits_inference_training_model.ipynb — additional split/model experiments
+  - weighted_splits_inference_training_model.ipynb - additional split/model experiments
   - TinyBERT classifier (notebook referenced)
   - Regression_BERT (notebook referenced)
   - Embeddings and LLM (notebook referenced; uses Gemini embeddings)
 - Scripts / models:
-  - models training and inference codes/DeBERTav3_focalLoss_llmData.py — DeBERTa-v3 fine-tuning with focal loss and LLM-refined data
+  - models training and inference codes/DeBERTav3_focalLoss_llmData.py - DeBERTa-v3 fine-tuning with focal loss and LLM-refined data
 - Reports:
-  - models training and inference codes/results of runing bert on raw data 3 splits.pdf — PDF with BERT per-split results (summarized below)
+  - models training and inference codes/results of runing bert on raw data 3 splits.pdf - PDF with BERT per-split results (summarized below)
 - Data (external):
-  - Dataset and embeddings are referenced on Google Drive in the notebooks (not stored in this public repo). Splits link and division code are referenced in notebooks/PDF.
+  - Dataset and embeddings are referenced in results PDF.
 
 ---
 
@@ -43,15 +43,15 @@ Method highlights:
 ## Results (averages across the three splits)
 All classification accuracy/F1 are reported as weighted metrics unless otherwise noted. Regression metrics: MAE and RMSE are denormalized to months; R² is reported as-is.
 
-1) Tiny‑BERT — classification
+1) Tiny‑BERT  classification
 - Accuracy (avg): 0.69
 - F1 (avg): 0.69
 
-2) DeBERTa‑v3 — classification
+2) DeBERTa‑v3  classification
 - Accuracy (avg): 0.71
 - F1 (avg): 0.70
 
-3) Tiny‑BERT — regression (regressor head)
+3) Tiny‑BERT  regression (regressor head)
 - RMSE (months, avg): 8.91
 - MAE  (months, avg): 7.09
 - R² (avg): 0.58
@@ -87,14 +87,14 @@ Notes: MAE and RMSE are in months for regression tasks.
 
 ## Files & code pointers
 - Transformer fine-tuning:
-  - models training and inference codes/DeBERTav3_focalLoss_llmData.py — DeBERTa-v3 with focal loss, two-stage training, plotting and saving of final metrics.
+  - models training and inference codes/DeBERTav3_focalLoss_llmData.py: DeBERTa-v3 with focal loss, two-stage training, plotting and saving of final metrics.
 - Classical & regression:
-  - Speak_Age_Train_and_Test_All_Models.ipynb — classical ML experiments and analyses.
-  - weighted_splits_inference_training_model.ipynb — split-aware training/inference experiments.
+  - Speak_Age_Train_and_Test_All_Models.ipynb: classical ML experiments and analyses.
+  - weighted_splits_inference_training_model.ipynb: split-aware training/inference experiments.
 - Embeddings experiments:
-  - Embeddings and LLM (notebook) — uses Gemini embeddings saved to Drive.
+  - Embeddings and LLM (notebook): uses Gemini embeddings saved to Drive.
 - Results artifact:
-  - models training and inference codes/results of runing bert on raw data 3 splits.pdf — source of per-split transformer numbers.
+  - models training and inference codes/results of runing bert on raw data 3 splits.pdf: source of per-split transformer numbers.
 
 ---
 
