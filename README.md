@@ -12,7 +12,7 @@ This README reports averaged metrics across the three experimental splits. Per-s
   - Speak_Age_Features.ipynb - feature extraction and preprocessing
   - Speak_Age_Promts.ipynb - LLM prompts & data correction (typo: "Promts")
   - Speak_Age_Train_and_Test_All_Models.ipynb - classical ML experiments and analyses
-  - splits.ipynb — split generation and protocol
+  - splits.ipynb - split generation and protocol
   - weighted_splits_inference_training_model.ipynb - additional split/model experiments
   - TinyBERT classifier (notebook referenced)
   - Regression_BERT (notebook referenced)
